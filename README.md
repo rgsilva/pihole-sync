@@ -6,7 +6,47 @@ Most of the existing tools require major system access or do this on an odd way.
 
 # Usage
 
-You may build the Docker image yourself, or run the script locally. An example configuration file is provided with all the information you need to start your syncing. Have fun!
+You may build the Docker image yourself, pull it from GHCR, or run the script locally. An example configuration file is provided with all the information you need to start your syncing.
+
+### Using public image
+
+To run it from GHCR, you may run the following command:
+
+```shell
+docker run -d \
+  -v /path/to/config.json:/app/config.json \
+  ghcr.io/rgsilva/pihole-sync:latest
+```
+
+You can also use docker compose for this. A `docker-compose.yml` is provided as an example in this repository.
+
+### Building locally
+
+To build the image locally, you need to run `docker build`. For example:
+
+```shell
+docker build . -t local/pihole-sync
+```
+
+Then you may run your container using the image `local/pihole-sync`.
+
+### Running locally
+
+To run without containers, you need to install the dependencies first:
+
+```shell
+pip3 install -r src/requirements.txt
+```
+
+And then you can run the application:
+
+```shell
+python3 src/main.py
+```
+
+You may want to do this inside a virtualenv.
+
+Have fun!
 
 # Disclaimer
 

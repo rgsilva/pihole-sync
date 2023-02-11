@@ -1,0 +1,13 @@
+version: "2"
+services:
+  pihole-sync:
+    image: ghcr.io/rgsilva/pihole-sync:latest
+    volumes:
+      - ./pihole-sync/config.json:/app/config.json
+    mem_limit: 64m
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "5"
+    restart: unless-stopped
