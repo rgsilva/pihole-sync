@@ -1,0 +1,13 @@
+{
+    "source": {
+        "endpoint": "",
+        "password": ""
+    },
+    "targets": [
+        {
+            "endpoint": "",
+            "password": ""
+        }
+    ],
+    "patches": ["disable-dhcp", "disable-ptr"]
+}
