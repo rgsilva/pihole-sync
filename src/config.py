@@ -6,6 +6,7 @@ class InstanceConfig(BaseModel):
     password: str
 
 class SyncConfig(BaseModel):
+    interval: int
     source: InstanceConfig
     targets: list[InstanceConfig]
     patches: list[str]
