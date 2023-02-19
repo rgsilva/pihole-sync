@@ -10,5 +10,10 @@
             "password": ""
         }
     ],
-    "patches": ["disable-dhcp", "disable-ptr"]
+    "patches": ["disable-dhcp", "disable-ptr"],
+    "webhook": {
+        "start": "http://your-web-hook/start",
+        "success": "http://your-web-hook/success",
+        "failure": "http://your-web-hook/failure"
+    }
 }

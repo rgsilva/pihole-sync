@@ -4,6 +4,8 @@ This is a simple tool I've created to synchronize two or more Pi-hole instances.
 
 Most of the existing tools require major system access or do this on an odd way. This tool, however, uses the Teleporter to apply the changes. It first exports the backup of the primary instance, applies whatever patches it needs to, and then uploads it to the other instances, restarting their DNS servers after it. This allow for a more seamless process and do not rely on specifiy architecture designs of the Pi-hole (besides the API, of course).
 
+Finally, this tool also supports calling webhooks. This is just a simple `GET` call to the specified endpoints, but together with [Healthchecks](https://github.com/healthchecks/healthchecks) this can be very useful to get alerts in case something goes wrong.
+
 # Usage
 
 You may build the Docker image yourself, pull it from GHCR, or run the script locally. An example configuration file is provided with all the information you need to start your syncing.
