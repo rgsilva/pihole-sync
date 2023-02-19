@@ -1,12 +1,14 @@
 import logging
 import requests
 
-from config import SyncConfig
+from config import SyncConfig, WebhookConfig
 
 class Webhook:
     def __init__(self, cfg: SyncConfig):
         if cfg.webhook != None:
             self._cfg = cfg.webhook
+        else:
+            self._cfg = WebhookConfig()
 
     def start(self):
         if self._cfg.start != None and len(self._cfg.start) > 0:
@@ -25,4 +27,4 @@ class Webhook:
             resp = requests.get(url)
             logging.info("[Webhook] GET %s returned %d", url, resp.status_code)
         except Exception as e:
-            logging.error("[Webhook] GET %s failed: %s", e)
+            logging.error("[Webhook] GET %s failed:", url, e)
